@@ -46,7 +46,17 @@ class GifImagePart:
                 print("La imagen no tiene tabla de colores local")
 
             self.minCodeSize = readInt(file, 1)
-            print(self.minCodeSize)
+            print('minCodeSize:', self.minCodeSize)
+
+            contador = 0
+            while True:
+                i = readInt(file, 1)
+                if i == 0x3b:
+                    print('Fin de la imagen. Contador:', contador)
+                    break
+                else:
+                    contador += 1
+                    print(i)
 
     def __init__(self):
         self.imageData = []
