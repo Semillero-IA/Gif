@@ -52,7 +52,7 @@ class GifHeader:
             self.options.read(flags)
 
             if (self.options.useGlobalColorTable):
-                self.colorTable = readColorTable(file, self.options.globalColorTableSize)
+                self.colorTable = mutateColorTable(file, self.options.globalColorTableSize)
             else:
                 print("La imagen no tiene tabla de colores global")
 
